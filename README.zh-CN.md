@@ -29,7 +29,7 @@ VLA 模型以视觉观测和语言指令为输入，并输出机器人动作。�
 <a id="vla-models"></a>
 ## VLA 模型
 
-按时间倒序整理已发布的 Vision-Language-Action 模型，最新模型放在前面。
+按开放情况优先整理已发布的 Vision-Language-Action 模型：✓ 开放模型在前，◐ 部分开放其次，✗ 闭源最后；每组内按时间倒序排列。
 
 - **VLM 骨干**：VLA 所基于的预训练视觉语言模型；若未使用预训练 VLM，则标注为 "from-scratch"。
 - **动作头**：连续机器人动作的生成方式，例如离散动作 token、扩散模型、flow matching 等。
@@ -37,32 +37,18 @@ VLA 模型以视觉观测和语言指令为输入，并输出机器人动作。�
 
 | 模型 | 日期 | 机构 | VLM 骨干 | 动作头 | 参数量 | 开放 | 链接 |
 |------|------|------|----------|--------|--------|------|------|
-| **ProgVLA** | 2026-05 | Samsung / KU Leuven | 紧凑多模态编码器 | 进度感知 flow matching + RL heads | 0.1B | ✗ | [Paper](https://arxiv.org/abs/2605.28231) |
-| **X-DiffVLA** | 2026-05 | Peking Univ. et al. | VLA backbone | 跨 embodiment 扩散动作头 | - | ✗ | [Paper](https://arxiv.org/abs/2605.25044) |
-| **HEX** | 2026-04 | Tsinghua / Huawei et al. | VLM + 本体感知专家 | Flow matching 全身动作头 | - | ✗ | [Paper](https://arxiv.org/abs/2604.07993) |
-| **MMaDA-VLA** | 2026-03 | DAMO / Zhejiang Univ. et al. | MMaDA 扩散骨干 | 面向语言/图像/动作 token 的原生离散扩散 | - | ✗ | [Paper](https://arxiv.org/abs/2603.25406) |
 | **AR-VLA** | 2026-03 | INSAIT / KU Leuven | 模块化 VLA 感知骨干 | 自回归连续动作专家 | - | ✓ | [Paper](https://arxiv.org/abs/2603.10126) / [Site](https://arvla.insait.ai/) |
-| **DAM-VLA** | 2026-03 | Yonsei Univ. et al. | VLM 推理模块 | 路由式动态扩散动作模型 | - | ✗ | [Paper](https://arxiv.org/abs/2603.00926) |
 | **LAP-3B** | 2026-02 | Princeton / Physical Intelligence | Large VLM | Language-action 预训练 | 3B | ✓ | [Paper](https://arxiv.org/abs/2602.10556) / [Site](https://lap-vla.github.io/) |
 | **LingBot-VLA** | 2026-01 | Ant Group / Robbyant | Qwen2.5-VL + depth features | 双臂动作解码器 | 4B | ✓ | [Paper](https://arxiv.org/abs/2601.18692) / [Code](https://github.com/Robbyant/lingbot-vla) |
 | **ACoT-VLA** | 2026-01 | AgiBot | 预训练 VLM 骨干 | Action Chain-of-Thought + flow matching | - | ✓ | [Paper](https://arxiv.org/abs/2601.11404) / [Code](https://github.com/AgibotTech/ACoT-VLA) |
 | **Green-VLA** | 2026-01 | Sber Robotics Center | GreenVLA 2B / 5B | 分阶段多 embodiment 策略 + RL 对齐 | 2B / 5B | ✓ | [Paper](https://arxiv.org/abs/2602.00919) / [Code](https://github.com/greenvla/GreenVLA) |
-| **AVA-VLA** | 2025-11 | Li Auto DSR | VLA backbone + recurrent state | 主动视觉注意力动作策略 | 8B | ◐ | [Paper](https://arxiv.org/abs/2511.18960) / [Site](https://liauto-dsr.github.io/AVA-VLA-Page) |
-| **X-VLA** | 2025-10 | Tsinghua AIR et al. | Soft-prompted Transformer | Flow matching 跨 embodiment 动作头 | 0.9B | ✗ | [Paper](https://arxiv.org/abs/2510.10274) / [Site](https://thu-air-dream.github.io/X-VLA/) |
-| **Discrete Diffusion VLA** | 2025-08 | Shanghai AI Lab et al. | Single Transformer VLM | 离散扩散动作解码器 | - | ✗ | [Paper](https://arxiv.org/abs/2508.20072) |
 | **MolmoAct** | 2025-08 | Allen AI (AI2) | Molmo VLM | 动作推理 + 分块动作 token | 7B | ✓ | [Paper](https://arxiv.org/abs/2508.07917) / [Code](https://github.com/allenai/MolmoAct) |
-| **Gemini Robotics On-Device** | 2025-06 | Google DeepMind | Gemini Nano family | 端侧动作解码器 | - | ✗ | [Site](https://deepmind.google/discover/blog/gemini-robotics-on-device-brings-ai-to-local-robotic-devices/) |
 | **WorldVLA** | 2025-06 | Alibaba DAMO | Chameleon | 统一世界模型 + 动作自回归 | 7B | ✓ | [Paper](https://arxiv.org/abs/2506.21539) / [Code](https://github.com/alibaba-damo-academy/WorldVLA) |
 | **GR00T N1.5** | 2025-06 | NVIDIA | Eagle-2 VLM | DiT 动作头（改进后训练） | 2B | ✓ | [Code](https://github.com/NVIDIA/Isaac-GR00T) |
 | **SmolVLA** | 2025-06 | Hugging Face | SmolVLM-2 | Flow matching 动作专家 | 450M | ✓ | [Paper](https://arxiv.org/abs/2506.01844) / [Code](https://github.com/huggingface/lerobot) |
 | **NORA** | 2025-04 | SUTD | Qwen2.5-VL | FAST token | 3B | ✓ | [Paper](https://arxiv.org/abs/2504.19854) / [Code](https://github.com/declare-lab/nora) |
-| **π0.5** | 2025-04 | Physical Intelligence | π0 + open-world co-training | Flow matching，泛化到未见过的家庭环境 | 3B | ✗ | [Paper](https://arxiv.org/abs/2504.16054) / [Site](https://www.physicalintelligence.company/blog/pi05) |
-| **GO-1** | 2025-03 | AgiBot | InternVL backbone | 潜变量规划器 + 动作专家 (ViLLA) | - | ◐ | [Site](https://agibot-world.com/blog/go1) / [Code](https://github.com/OpenDriveLab/AgiBot-World) |
-| **Gemini Robotics** | 2025-03 | Google DeepMind | Gemini 2.0 | 动作解码器（闭源） | - | ✗ | [Paper](https://arxiv.org/abs/2503.20020) / [Site](https://deepmind.google/discover/blog/gemini-robotics-brings-ai-into-the-physical-world/) |
 | **GR00T N1** | 2025-03 | NVIDIA | Eagle-2 VLM | DiT 动作头（System 1+2 设计） | 2B | ✓ | [Paper](https://arxiv.org/abs/2503.14734) / [Code](https://github.com/NVIDIA/Isaac-GR00T) |
 | **OpenVLA-OFT** | 2025-02 | Stanford | OpenVLA | 并行解码 + 连续动作 + L1 回归 | 7B | ✓ | [Paper](https://arxiv.org/abs/2502.19645) / [Code](https://github.com/moojink/openvla-oft) |
-| **Hi Robot** | 2025-02 | Physical Intelligence | π0 backbone + high-level VLM | 分层结构（指令 → 动作） | 3B | ✗ | [Paper](https://arxiv.org/abs/2502.19417) / [Site](https://www.physicalintelligence.company/research/hirobot) |
-| **Helix** | 2025-02 | Figure AI | S2 (VLM, ~7B) + S1 (80M visuomotor) | 双系统，S1 以 200Hz 运行 | ~7B (S2) | ✗ | [Site](https://www.figure.ai/news/helix) |
 | **Magma** | 2025-02 | Microsoft | LLaVA-style | Set-of-marks + action traces | 8B | ✓ | [Paper](https://arxiv.org/abs/2502.13130) / [Code](https://github.com/microsoft/Magma) |
 | **DexVLA** | 2025-02 | Midea | Qwen2-VL | 扩散动作专家（灵巧操作） | 1B+ | ✓ | [Paper](https://arxiv.org/abs/2502.05855) / [Site](https://dex-vla.github.io/) |
 | **SpatialVLA** | 2025-01 | Shanghai AI Lab et al. | PaliGemma2 | Ego3D 位置感知动作 token | 4B | ✓ | [Paper](https://arxiv.org/abs/2501.15830) / [Code](https://github.com/SpatialVLA/SpatialVLA) |
@@ -75,10 +61,24 @@ VLA 模型以视觉观测和语言指令为输入，并输出机器人动作。�
 | **Octo** | 2024-05 | UC Berkeley / Stanford | Transformer (from-scratch) | 扩散动作头 | 27M / 93M | ✓ | [Paper](https://arxiv.org/abs/2405.12213) / [Code](https://github.com/octo-models/octo) |
 | **3D-VLA** | 2024-03 | UMass / MIT | 3D-LLM | 生成式 3D 目标 + 动作 | - | ✓ | [Paper](https://arxiv.org/abs/2403.09631) / [Code](https://github.com/UMass-Foundation-Model/3D-VLA) |
 | **RoboFlamingo** | 2023-11 | ByteDance / Berkeley | OpenFlamingo | LSTM 动作头 | ~3B | ✓ | [Paper](https://arxiv.org/abs/2311.01378) / [Code](https://github.com/RoboFlamingo/RoboFlamingo) |
+| **RT-1** | 2022-12 | Google | EfficientNet + Universal Sentence Encoder | 离散动作 token (Transformer) | 35M | ✓ | [Paper](https://arxiv.org/abs/2212.06817) / [Code](https://github.com/google-research/robotics_transformer) |
+| **AVA-VLA** | 2025-11 | Li Auto DSR | VLA backbone + recurrent state | 主动视觉注意力动作策略 | 8B | ◐ | [Paper](https://arxiv.org/abs/2511.18960) / [Site](https://liauto-dsr.github.io/AVA-VLA-Page) |
+| **GO-1** | 2025-03 | AgiBot | InternVL backbone | 潜变量规划器 + 动作专家 (ViLLA) | - | ◐ | [Site](https://agibot-world.com/blog/go1) / [Code](https://github.com/OpenDriveLab/AgiBot-World) |
+| **ProgVLA** | 2026-05 | Samsung / KU Leuven | 紧凑多模态编码器 | 进度感知 flow matching + RL heads | 0.1B | ✗ | [Paper](https://arxiv.org/abs/2605.28231) |
+| **X-DiffVLA** | 2026-05 | Peking Univ. et al. | VLA backbone | 跨 embodiment 扩散动作头 | - | ✗ | [Paper](https://arxiv.org/abs/2605.25044) |
+| **HEX** | 2026-04 | Tsinghua / Huawei et al. | VLM + 本体感知专家 | Flow matching 全身动作头 | - | ✗ | [Paper](https://arxiv.org/abs/2604.07993) |
+| **MMaDA-VLA** | 2026-03 | DAMO / Zhejiang Univ. et al. | MMaDA 扩散骨干 | 面向语言/图像/动作 token 的原生离散扩散 | - | ✗ | [Paper](https://arxiv.org/abs/2603.25406) |
+| **DAM-VLA** | 2026-03 | Yonsei Univ. et al. | VLM 推理模块 | 路由式动态扩散动作模型 | - | ✗ | [Paper](https://arxiv.org/abs/2603.00926) |
+| **X-VLA** | 2025-10 | Tsinghua AIR et al. | Soft-prompted Transformer | Flow matching 跨 embodiment 动作头 | 0.9B | ✗ | [Paper](https://arxiv.org/abs/2510.10274) / [Site](https://thu-air-dream.github.io/X-VLA/) |
+| **Discrete Diffusion VLA** | 2025-08 | Shanghai AI Lab et al. | Single Transformer VLM | 离散扩散动作解码器 | - | ✗ | [Paper](https://arxiv.org/abs/2508.20072) |
+| **Gemini Robotics On-Device** | 2025-06 | Google DeepMind | Gemini Nano family | 端侧动作解码器 | - | ✗ | [Site](https://deepmind.google/discover/blog/gemini-robotics-on-device-brings-ai-to-local-robotic-devices/) |
+| **π0.5** | 2025-04 | Physical Intelligence | π0 + open-world co-training | Flow matching，泛化到未见过的家庭环境 | 3B | ✗ | [Paper](https://arxiv.org/abs/2504.16054) / [Site](https://www.physicalintelligence.company/blog/pi05) |
+| **Gemini Robotics** | 2025-03 | Google DeepMind | Gemini 2.0 | 动作解码器（闭源） | - | ✗ | [Paper](https://arxiv.org/abs/2503.20020) / [Site](https://deepmind.google/discover/blog/gemini-robotics-brings-ai-into-the-physical-world/) |
+| **Hi Robot** | 2025-02 | Physical Intelligence | π0 backbone + high-level VLM | 分层结构（指令 → 动作） | 3B | ✗ | [Paper](https://arxiv.org/abs/2502.19417) / [Site](https://www.physicalintelligence.company/research/hirobot) |
+| **Helix** | 2025-02 | Figure AI | S2 (VLM, ~7B) + S1 (80M visuomotor) | 双系统，S1 以 200Hz 运行 | ~7B (S2) | ✗ | [Site](https://www.figure.ai/news/helix) |
 | **RT-2-X / RT-X** | 2023-10 | Open X-Embodiment collab | PaLI-X | 离散动作 token，跨 embodiment | 55B | ✗ | [Paper](https://arxiv.org/abs/2310.08864) / [Site](https://robotics-transformer-x.github.io/) |
 | **RT-2** | 2023-07 | Google DeepMind | PaLI-X / PaLM-E | 离散动作 token（与网页数据联合微调） | 5B / 55B | ✗ | [Paper](https://arxiv.org/abs/2307.15818) / [Site](https://robotics-transformer2.github.io/) |
 | **PaLM-E** | 2023-03 | Google | PaLM + ViT | LLM 驱动规划（文本动作） | up to 562B | ✗ | [Paper](https://arxiv.org/abs/2303.03378) / [Site](https://palm-e.github.io/) |
-| **RT-1** | 2022-12 | Google | EfficientNet + Universal Sentence Encoder | 离散动作 token (Transformer) | 35M | ✓ | [Paper](https://arxiv.org/abs/2212.06817) / [Code](https://github.com/google-research/robotics_transformer) |
 
 ---
 
